@@ -586,7 +586,7 @@ ul.pagination .active a {
   margin: 0 auto;
   width: 100%;
   height: 200px;
-  display: flex;
+  display:block;
   align-items: center;
   justify-content: center;
   z-index: 1;
@@ -638,29 +638,6 @@ ul.pagination .active a {
 
 .bg-gray {
   background: #F5F5F5;
-}
-
-.bg-1 {
-  background: url("../../../assets/images/background/bg-1.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-
-.bg-2 {
-  background: url("assets/images/subscription/subscription-back.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-.bg-3 {
-  background: url("assets//images/call-to-action/cta-background.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.bg-4 {
-  background: #f49719;
 }
 
 .navigation {
@@ -1318,10 +1295,19 @@ ul.pagination .active a {
 .product-item {
   box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.1);
   margin-bottom: 30px;
+  
+}
+.offer{
+  border: 5px solid #f49719;
+  border-radius: 7px;
 }
 .product-item .card {
   border: none;
 }
+.product-item .card .card-body p{
+font-size: medium;
+}
+
 .product-item .card .card-body {
   padding: 20px;
 }
@@ -1335,6 +1321,18 @@ ul.pagination .active a {
 }
 .product-item .thumb-content {
   position: relative;
+ 
+}
+.product-item .thumb-content .fav {
+  width: max-content;
+  height: auto;
+  position: absolute;
+  top: 10px;
+  right:10px;
+  color: #f49719;
+  display: inline-block;
+  padding: 2%;
+  font-size: larger;
 }
 .product-item .thumb-content .price {
   width: max-content;
@@ -1342,8 +1340,8 @@ ul.pagination .active a {
   position: absolute;
   top: 10px;
   left: 10px;
-  background: #f49719;
-  color: #fff;
+  background: #000000;
+  color: #f49719;
   display: inline-block;
   padding: 2%;
   font-size: larger;
@@ -2282,7 +2280,8 @@ form textarea {
     margin-top: 20px;
   }
   .search-box{
-    margin-top: 70px;
+    display: flex;
+    margin-top: 30px;
     position:static;
   }
   .scroll-top-to {
@@ -2303,5 +2302,10 @@ form textarea {
  .slids-img{
   height:100%;
   object-fit: cover;
+}
+
+.my-btn{
+  background-color: #000000;
+  color: #f49719;
 }
 
