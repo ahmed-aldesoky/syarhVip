@@ -17,17 +17,22 @@
 								<a class="nav-link" aria-current="page"  routerLink="/">{{"Home" | translate}}</a>
 							</li>
 							<li class="nav-item active">
-								<a class="nav-link" routerLink="/product">{{"product" | translate}}<span><i class="fa fa-angle-down"></i></span>
+								<a class="nav-link" routerLink="/product">{{"product" | translate}}
 								</a>
 							</li>
+
+							
 
 						
 							
 							<li class="nav-item active">
-								<a class="nav-link login-button" routerLink="/login">{{"login" | translate}}</a>
+								<a class="nav-link login-button" routerLink="/login" *ngIf="!isLoggedIn">{{"login" | translate}}</a>
 							</li>
 							<li class="nav-item active">
-								<a class="nav-link login-button" routerLink="/signup">{{"singup" | translate}}</a>
+								<a class="nav-link login-button" routerLink="/signup" *ngIf="!isLoggedIn">{{"singup" | translate}}</a>
+							</li>
+							<li class="nav-item active">
+								<a class="nav-link login-button" routerLink="/signup" *ngIf="isLoggedIn" (click)="logout()">{{"logout" | translate}}</a>
 							</li>
 							<li class="nav-item dropdown dropdown-slide active">
 								<a class="nav-link dropdown-toggle"  role="button"data-bs-toggle="dropdown" aria-expanded="false">{{"language" | translate}}<span><i class="bi bi-arrow-down-short"></i></span></a>
@@ -37,6 +42,13 @@
 									<li><a class="dropdown-item text-warning"  (click)="changelanguage('en')" >{{"english" | translate}}</a></li>
 									
 								</ul>
+							</li>
+							<li>
+								<div class="d-flex align-items-center">
+									<div class="rounded-circle bg-success text-white avatar mr-2 d-flex align-items-center justify-content-center" *ngIf="isLoggedIn" placement="left"  routerLink="/">
+										<h3 class="avatar-text">{{avatarInitial | uppercase}}</h3>
+									</div>
+								</div>
 							</li>
 							
 						</ul>

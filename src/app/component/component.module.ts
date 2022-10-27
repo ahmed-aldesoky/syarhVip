@@ -12,6 +12,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SignupComponent } from './signup/signup.component';
 import {SharedModule} from '../shared/shared.module'
 import {TranslationModule} from '../translation.module';
+import { MessageComponent } from './message/message.component';
+import { TitleComponent } from './title/title.component';
+import { NgToastModule } from 'ng-angular-popup'
 
 
 
@@ -27,6 +30,8 @@ import {TranslationModule} from '../translation.module';
     HeaderComponent,
     LoginComponent,
     SignupComponent,
+    MessageComponent,
+    TitleComponent,
 
   ],
   imports: [
@@ -35,10 +40,16 @@ import {TranslationModule} from '../translation.module';
     FormsModule,
     ReactiveFormsModule,
     SharedModule,
-    TranslationModule
-
-
+    TranslationModule,
+    NgToastModule
     
+  ]
+,
+  exports:[
+    MessageComponent,
+    TitleComponent,
+    NgToastModule
+
   ]
   
 })

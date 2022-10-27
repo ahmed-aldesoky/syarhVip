@@ -13,7 +13,7 @@
                     <h4 class="mt-1 mb-5 pb-1">{{"create" | translate}}</h4>
                   </div>
   
-                  <form  [formGroup]="personalInfoForm" ngNativeValidate (ngSubmit)="submitData()">
+                  <form  [formGroup]="personalInfoForm" ngNativeValidate (ngSubmit)="signup()">
 
                     <div class="form-outline mb-4">
                       <!-- <label class="form-label" for="form2Example11">Username</label> -->
@@ -25,14 +25,7 @@
                     </div>
                   
     
-                    <div class="form-outline mb-4">
-                      <!-- <label class="form-label" for="form2Example11">Email</label> -->
-                      <input type="text" formControlName="email" [class.notvalid]="email?.invalid &&email?.touched" required name="email" placeholder="{{'email' | translate}}" />
-                      <div *ngIf="email?.invalid && email?.touched" >
-                          <small class="error" *ngIf="email?.errors?.['pattern']">الاسم غير صالح.</small>
-                          <small class="error" *ngIf="email?.errors?.['required']">البريد الالكتروني مطلوب</small>
-                      </div>
-                    </div>
+                    
                  
                     <div class="form-outline mb-4">
                       <!-- <label class="form-label" for="form2Example11">phone</label> -->
@@ -40,6 +33,14 @@
                       <div *ngIf="phone?.invalid && phone?.touched" >
                           <small class="error" *ngIf="phone?.errors?.['pattern']">رقم الجوال غير صالح.</small>
                           <small class="error" *ngIf="phone?.errors?.['required']">رقم الجوال مطلوب.</small>
+                      </div>
+                    </div>
+
+                    <div class="form-outline mb-4">
+                      <!-- <label class="form-label" for="form2Example11">Email</label> -->
+                      <input type="text" formControlName="email" [class.notvalid]="email?.invalid &&email?.touched"  name="email" placeholder="{{'email' | translate}}" />
+                      <div *ngIf="email?.invalid && email?.touched" >
+                          <small class="error" *ngIf="email?.errors?.['pattern']">البريد الالكتروني غير صالح.</small>
                       </div>
                     </div>
 
@@ -63,7 +64,7 @@
                   
                    
                   
-                    <input type="submit"  class="sub"  value="{{'Submit' | translate}}">
+                    <input type="submit"  class="sub" [disabled]="!personalInfoForm.valid"  value="{{'Submit' | translate}}">
                     
                 </form>
                 <div class="d-flex align-items-center justify-content-center pb-4 ">

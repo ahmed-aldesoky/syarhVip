@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Inject } from "@angular/core";
 import { DOCUMENT } from "@angular/common";
+import { Subscription } from 'rxjs';
+import { ToastService } from 'src/app/data/service/toast.service';
+import { Router } from '@angular/router';
+import { AuthenticationService } from 'src/app/data/service/authentication.service';
 
 @Component({
   selector: 'app-nav',
@@ -10,14 +14,36 @@ import { DOCUMENT } from "@angular/common";
 })
 export class NavComponent implements OnInit {
   currentlanguage!:string;
+  isLoggedIn = false;
+  avatarInitial = '';
+  username = '';
+  authStatus!: Subscription;
 
-  constructor(@Inject(DOCUMENT)private document: Document,
-    public translate:TranslateService ) { 
+  constructor(
+    @Inject(DOCUMENT)private document: Document,
+    public translate:TranslateService,
+    private auth: AuthenticationService,
+    private router: Router,
+    private toast: ToastService ) { 
   this.currentlanguage=localStorage.getItem('currentlanguage')||'en';
   this.translate.use(this.currentlanguage)
 }
 
   ngOnInit(): void {
+    
+    this.authStatus = this.auth.loggedInStatus$.subscribe(status => { 
+      this.isLoggedIn = status;
+
+      if (status) {
+        this.username = this.auth.getPersistedUser().username;
+
+        this.avatarInitial = this.username[0] || 'Q';
+        
+      }
+    });
+
+
+
     const lang = localStorage.getItem("currentlanguage")
     lang && this.document.documentElement.setAttribute("lang",lang)
     lang && this.changelanguage(lang)
@@ -37,24 +63,15 @@ export class NavComponent implements OnInit {
   }
 
 
+  ngOnDestroy(): void {
+    this.authStatus.unsubscribe();
+  }
 
+  logout() {
+    this.auth.logout();
 
-    // changeLogo(lang: string) {
-    //   let headTag = this.document.getElementsByTagName("head")[0] as HTMLHeadElement;
-    //   let existingLink = this.document.getElementById("langCss") as HTMLLinkElement;
-    //   let bundleName = lang === "ar" ?       "arabicStyle.css":"englishStyle.css";
-    //   if (existingLink) {
-    //      existingLink.href = bundleName;
-    //   } else {
-    //      let newLink = this.document.createElement("link");
-    //      newLink.rel = "stylesheet";
-    //      newLink.type = "text/css";
-    //      newLink.id = "langCss";
-    //      newLink.href = bundleName;
-    //      headTag.appendChild(newLink);
-    //   }
-    //   }
-    
+    this.toast.showSuccess('Successfully logged out.');
+
+    this.router.navigateByUrl('/');
+  }
 }
-
-

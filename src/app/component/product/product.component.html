@@ -4,143 +4,77 @@
 		<div class="row">
 			<div class="col-12">
 				<div class="search-result bg-gray row none">
-					<h2 class="col-5 mt-3">{{"result" | translate}} "Lamborghini"</h2>
+					<h2 class="col-6 col-lg-3 mt-3">{{"result" | translate}} </h2>
 					
 					
-					<div class="form-group  btn-group    col-7 col-sm-4  ">
+					<div class="form-group  btn-group    col-7 col-sm-4  ms-5  ">
 						<button class="btn bg-dark text-warning dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
 							{{"sort" | translate}}
 						</button>
 						<ul class="dropdown-menu ">
-						  <li><a class="dropdown-item bg-dark text-warning"value="1">{{"TopRated" | translate}}</a></li>
-						  <li><a class="dropdown-item bg-dark text-warning" value="2">{{"lowestPrice" | translate}}</a></li>
-						  <li><a class="dropdown-item bg-dark text-warning"value="3">{{"heightPrice" | translate}}</a></li>
+							<li><a class="dropdown-item bg-dark text-warning"value="1">{{"TopRated" | translate}}</a></li>
+							<li><a class="dropdown-item bg-dark text-warning" value="2">{{"lowestPrice" | translate}}</a></li>
+							<li><a class="dropdown-item bg-dark text-warning"value="3">{{"heightPrice" | translate}}</a></li>
 						</ul>
-					  </div>
-					  <div class="col-3 social-media-icons text-center text-lg-righ media ">
-						<a href=""><span class="bi bi-tiktok "></span></a>
-						<a href=""><span class="bi bi-youtube "></span></a>
-						<a href=""><span class="bi bi-snapchat "></span></a>
-						<a href=""><span class="bi bi-twitter "></span></a>
-						<a href=""><span class="bi bi-instagram "></span></a>
 					</div>
-					
-
-
+					<div class="col-md-12 col-xl-4 social-media-icons text-left text-lg-left media row me-5 ">
+						<a class="col-2 " href=""><img   class="" src="../../../assets/images/logo/103-1037817_13-twitter-icon-vector-logo-images-twitter-logo.png"   height="50" ></a>
+						<a class="col-2 " href=""><img   class="" src="../../../assets/images/logo/134-1347559_non-copyright-youtube-logo.png"   height="50" ></a>
+						<a class="col-2 " href=""><img   class="" src="../../../assets/images/logo/5cb78678a7c7755bf004c14c.png"   height="50" ></a>
+						<a class="col-2 " href=""><img   class="" src="../../../assets/images/logo/imgbin_social-media-snapchat-spectacles-snap-inc-computer-icons-png.png"   height="50" ></a>
+						<a class="col-2 " href=""><img   class="" src="../../../assets/images/logo/Instagram_logo_2016.svg.png"   height="50" ></a>
+					</div>
 				</div>
 			</div>
 		</div>
+		<!-- search by logo -->
 		<div class="row">
-			<div class="col-lg-3 col-md-4">
-				<div class="category-sidebar">
-	
-					<div class="brand-logos">
-							<a  class="brand-logos--svg" >
-									<img alt="ford-logo"  class="svg-size-5x" src="../../../assets/images/logo/bentley-logo.png	" width="60" height="60">
-								</a>
-							<a  class="brand-logos--svg" ><img alt="mercedes-logo"  class="svg-size-5x" src="https://betacdn.haraj.com.sa/assets/images/svg/mercedes-logo.svg" width="60" height="60"></a>
-							
-							<a  class="brand-logos--svg"><img alt="bmw-logo"  class="svg-size-5x" src="https://betacdn.haraj.com.sa/assets/images/svg/bmw-logo.svg" width="60" height="60"></a>
-							<a  class="brand-logos--svg" ><img alt="dodge-logo"  class="svg-size-5x" src="https://betacdn.haraj.com.sa/assets/images/svg/dodge-logo.svg" width="60" height="60"></a>
-							<a  class="brand-logos--svg" ><img alt="hummer-icon"  class="svg-size-5x" src="https://betacdn.haraj.com.sa/assets/images/svg/hummer-icon.svg" width="60" height="60"></a>
-							<a  class="brand-logos--svg" ><img alt="cadillac-logo-alt"  class="svg-size-5x" src="https://betacdn.haraj.com.sa/assets/images/svg/cadillac-logo-alt.svg" width="60" height="60"></a>
-							<a  class="brand-logos--svg" >
-								<img alt="lamborghini-logo"  class="svg-size-5x" src="https://betacdn.haraj.com.sa/assets/images/svg/lamborghini-logo.svg" width="60" height="60">
-							</a>
-							<a  class="brand-logos--svg" >
-								<img alt="ferrari-logo"  class="svg-size-5x" src="https://betacdn.haraj.com.sa/assets/images/svg/ferrari-logo.svg" width="60" height="60">
-							</a>
-							<a  class="brand-logos--svg" >
-								<img alt="porsche-logo"  class="svg-size-5x" src="https://betacdn.haraj.com.sa/assets/images/svg/porsche-logo.svg" width="60" height="60">
-							</a>
-							<a  class="brand-logos--svg">
-								<img alt="volkswagen-logo"  class="svg-size-5x" src="https://betacdn.haraj.com.sa/assets/images/svg/volkswagen-logo.svg" width="60" height="60">
-							</a>
-							<a  class="brand-logos--svg" >
-								<img alt="jeep-icon"  class="svg-size-5x" src="https://betacdn.haraj.com.sa/assets/images/svg/jeep-icon.svg" width="60" height="60">
-							</a>
+			<div class=" col-lg-3 col-md-2 ">
+				<div class="category-sidebar ">
+					<div class="brand-logos ">
+						<a class="brand-logos--svg " *ngFor="let i of logo"><img  alt="ford-logo"  class="svg-size-5x " src={{i.path}} width="60" (click)="filter(i.name)"></a>
 					</div>
 
 
-
-					<div class="widget filter ">
+				<!-- search  -->
+					<form class="widget filter " #userForm="ngForm"  (ngSubmit)="filterProject()" >
 						<h4 class="widget-header ">{{"show" | translate}}</h4>
-						<div class="form-group  btn-group w-100 my-2">
-                            <button class="btn btn-dark text-warning dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
-                                {{"selectBrand" | translate}}
-                            </button>
-                            <ul class="dropdown-menu dropdown-menu-dark  ">
-                              <li><a class="dropdown-item text-warning" >BMW</a></li>
-                              <li><a class="dropdown-item text-warning" >GMC</a></li>
-                              <li><a class="dropdown-item text-warning" >Bentely</a></li>
-                            </ul>
-                          </div>
-
-						 
-
-						  <div class="form-group  btn-group w-100 my-2">
-                            <button class="btn btn-dark text-warning dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
-								{{"selectModel" | translate}}
-                            </button>
-                            <ul class="dropdown-menu dropdown-menu-dark  ">
-                                <li><a class="dropdown-item text-warning" >موديل 1</a></li>
-                                <li><a class="dropdown-item text-warning" >موديل 2</a></li>
-                                <li><a class="dropdown-item text-warning" >موديل 3</a></li>
-                            </ul>
-                          </div>
-
-						<div class="form-group  btn-group w-100 my-2">
-                            <button class="btn btn-dark text-warning dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
-                                {{"selectYear" | translate}}
-                            </button>
-                            <ul class="dropdown-menu ">
-                              <li><a class="dropdown-item" >2022</a></li>
-                              <li><a class="dropdown-item" >2021</a></li>
-                              <li><a class="dropdown-item" >2020</a></li>
-                              <li><a class="dropdown-item" >1019</a></li>
-                              <li><a class="dropdown-item" >2018</a></li>
-                            </ul>
-                        </div>
-						
-						<div class="row">
-							<h4 class="widget-header">{{"price" | translate}}</h4>
-											
-							<div class="row justify-content-between mt-2">
-							<input class="range-track col-5" type="text" data-slider-min="0" data-slider-max="1000000" data-slider-step="5" data-slider-value="[0,1000000]" placeholder="من">
-							<input class="range-track col-5" type="text" data-slider-min="10"  data-slider-step="5" data-slider-max="1000000" data-slider-value="[0,1000000]" placeholder="الي">
-											
-							<span class="value">SR10 - SR5000</span>
-
-							<!-- <label for="customRange3" class="form-label">Example range</label>
-							<input type="range" class="form-range" min="0" max="500000" step="10000" id="customRange3"> -->
-
-
-
-
-						
+						<div class="form-group   btn-group w-100 my-2">
+							<select class="form-select  bg-dark text-warning"  aria-label="Default select example" required>
+                                <option selected class="text-warning">{{'selectBrand' | translate}}</option>
+								<option #all value="{{m}}" *ngFor="let m of makers"  (click)="selectbrand(all.value)"  (click)="do()">{{m}}</option>
 
 							
-						</div>
 
 
-						<h4 class="widget-header mt-3">{{"Condition" | translate}}</h4>
-						<div class="form-check w-50">
-						<label class="form-check-label">
-							<input class="form-check-input" type="checkbox" value="">
-							{{"new" | translate}}
-						</label>
-						</div>
-						<div class="form-check w-50">
-						<label class="form-check-label">
-							<input class="form-check-input" type="checkbox" value="">
-							{{"used" | translate}}
-						</label>
-						</div>
-						
-						
-						</div>
-						<button type="submit" class="btn  my-btn w-100 mt-3 "><span class="bi bi-search"></span></button>
-					</div>
+
+                            </select>
+                        </div>
+						<div class="form-group  btn-group w-100 my-2">
+							<select class="form-select  bg-dark text-warning " aria-label="Default select example" required >
+								<option    class="text-warning" >{{"selectModel" | translate}}</option>
+								<option #allmodel value="" (click)="selectmodel(allmodel.value)">الكل</option>
+                                <option #model value="{{m}}" *ngFor="let m of models" (click)="selectmodel(model.value)" >{{m}}</option>        
+                            </select>
+                        
+                        </div>
+						<div class="form-group  btn-group w-100 my-2">
+                            <select class="form-select  bg-dark text-warning " aria-label="Default select example"  >
+                                <option  class="text-warning">{{"year" | translate}}</option>
+								<option #allyear value="" (click)="selectyear(allyear.value)">الكل</option>
+                                <option #year value="{{y}}" *ngFor="let y of years" (click)="selectyear(year.value)">{{y}}</option>
+                                
+                            </select>
+                        </div>
+						<div class="form-group  btn-group w-100 my-2">
+                            <select class="form-select  bg-dark text-warning " aria-label="Default select example" >
+								<option  class="text-warning">{{"location" | translate}}</option>
+								<option #allloc value="" (click)="selectlocation(allloc.value)">الكل</option>
+								<option #location  value="{{l}}" *ngFor="let l of locations" (click)="selectlocation(location.value)">{{l}}</option>
+							</select>
+                        </div>
+						<button type="submit" class="btn  my-btn w-100 mt-3 " [disabled]="!userForm.valid"  ><span class="bi bi-search"></span></button>
+					</form>
 
 					
 					<div class="widget product-shorting">
@@ -149,399 +83,32 @@
 
 				</div>
 			</div>
-			<div class="col-lg-9 col-md-8">
-				
+			<div class="col-9 col-lg-9 col-md-10">
+					<div class="product-grid-list">
+						<div class="row mt-30">
+							<!-- try -->
 
-
-
-	<div class="product-grid-list">
-		<div class="row mt-30">
-
-
-			<!-- try -->
-
-			<div class="col-lg-4 col-md-6  ">
-						<!-- product card -->
-				<div class="product-item bg-light">
-					<div class="card">
-						<div class="thumb-content">
-							<div class="price">SR679,999</div>
-								<button class="fav btn btn-dark bi bi-heart-fill"></button>
-								<a routerLink="/productdetails">
-								<img class="card-img-top img-fluid" src="../../../assets/images/products/products-1.jpg" alt="Card image cap"></a>
+							<!-- change here the number of cards in row -->
+						<div class="col-lg-6 col-md-6 "   *ngFor="let car of cars">
+							<!-- product card -->
+							<div class="product-item bg-light ">
+								<div class="card">
+									<div class="thumb-content">
+										<div  class="price">SR679,999</div>
+										<!-- <button class="fav btn btn-dark bi bi-heart-fill"></button> -->
+										<a  (click)="toCar(car)"> <img class="card-img-top" src="{{car.img1}}" alt="Card image cap"  height="400" style="object-fit:cover ;"></a>
+									</div>
+									<div class="card-body">
+										<p  style="font-size:small;">{{car.maker}}</p>
+										<h4 class="card-title"><a  (click)="toCar(car)">{{car.name}} </a></h4>
+										<div class="row mt-3  ">
+											<p class=" col-6">{{"model" | translate}}: {{car.year}}</p>
+											<p class=" col-6"> {{"Mileage" | translate}} :{{car.mileage}} كم</p>
+										</div>
+									</div>
+								</div>
+							</div>
 						</div>
-						<div class="card-body">
-							<p  style="font-size:small;">Lamborghini</p>
-							<h4 class="card-title"><a routerLink="/productdetails">{{"carType" | translate}} </a></h4>
-							<div class="row mt-3  "> 
-								<p class=" ">{{"model" | translate}}: 2015</p>
-								<p class=" "> {{"Mileage" | translate}} :42,717 كم</p>
-							</div>		 
-						</div>	
-					</div>
-				</div>
-			</div>	
-
-	<!-- try -->
-
-			<div class="col-lg-4 col-md-6  ">
-						<!-- product card -->
-				<div class="product-item bg-light">
-					<div class="card">
-						<div class="thumb-content">
-							<div class="price">SR679,999</div>
-								<button class="fav btn btn-dark bi bi-heart-fill"></button>
-								<a routerLink="/productdetails">
-								<img class="card-img-top img-fluid" src="../../../assets/images/products/products-2.jpg" alt="Card image cap"></a>
-						</div>
-						<div class="card-body">
-							<p  style="font-size:small;">Lamborghini</p>
-							<h4 class="card-title"><a routerLink="/productdetails">{{"carType" | translate}} </a></h4>
-							<div class="row mt-3  "> 
-								<p class=" ">{{"model" | translate}}: 2015</p>
-								<p class=" "> {{"Mileage" | translate}} :42,717 كم</p>
-							</div>		 
-						</div>	
-					</div>
-				</div>
-			</div>	
-					<!-- try -->
-
-			<div class="col-lg-4 col-md-6  ">
-						<!-- product card -->
-				<div class="product-item bg-light">
-					<div class="card">
-						<div class="thumb-content">
-							<div class="price">SR679,999</div>
-								<button class="fav btn btn-dark bi bi-heart-fill"></button>
-								<a routerLink="/productdetails">
-								<img class="card-img-top img-fluid" src="../../../assets/images/products/products-3.jpg" alt="Card image cap"></a>
-						</div>
-						<div class="card-body">
-							<p  style="font-size:small;">Lamborghini</p>
-							<h4 class="card-title"><a routerLink="/productdetails">{{"carType" | translate}} </a></h4>
-							<div class="row mt-3  "> 
-								<p class=" ">{{"model" | translate}}: 2015</p>
-								<p class=" "> {{"Mileage" | translate}} :42,717 كم</p>
-							</div>		 
-						</div>	
-					</div>
-				</div>
-			</div>
-
-
-
-					<!-- try -->
-
-			<div class="col-lg-4 col-md-6  ">
-						<!-- product card -->
-					<div class="product-item bg-light">
-							<div class="card">
-								<div class="thumb-content">
-						<div class="price">SR679,999</div>
-							<button class="fav btn btn-dark bi bi-heart-fill"></button>
-						<a routerLink="/productdetails">
-						<img class="card-img-top img-fluid" src="../../../assets/images/products/products-1.jpg" alt="Card image cap">
-						</a>
-				</div>
-				<div class="card-body">
-					<p  style="font-size:small;">Lamborghini</p>
-
-					<h4 class="card-title"><a routerLink="/productdetails">{{"carType" | translate}} </a></h4>
-					<div class="row mt-3  "> 
-						<p class=" ">{{"model" | translate}}: 2015</p>
-						<p class=" "> {{"Mileage" | translate}} :42,717 كم</p>
-					</div>		 
-				</div>
-			</div>
-		</div>
-				</div>
-
-
-					<!-- try -->
-
-			<div class="col-lg-4 col-md-6  ">
-						<!-- product card -->
-				<div class="product-item bg-light">
-					<div class="card">
-						<div class="thumb-content">
-							<div class="price">SR679,999</div>
-								<button class="fav btn btn-dark bi bi-heart-fill"></button>
-								<a routerLink="/productdetails">
-								<img class="card-img-top img-fluid" src="../../../assets/images/products/products-2.jpg" alt="Card image cap"></a>
-						</div>
-						<div class="card-body">
-							<p  style="font-size:small;">Lamborghini</p>
-							<h4 class="card-title"><a routerLink="/productdetails">{{"carType" | translate}} </a></h4>
-							<div class="row mt-3  "> 
-								<p class=" ">{{"model" | translate}}: 2015</p>
-								<p class=" "> {{"Mileage" | translate}} :42,717 كم</p>
-							</div>		 
-						</div>	
-					</div>
-				</div>
-			</div>
-
-
-					<!-- try -->
-
-			<div class="col-lg-4 col-md-6  ">
-						<!-- product card -->
-					<div class="product-item bg-light">
-							<div class="card">
-								<div class="thumb-content">
-						<div class="price">SR679,999</div>
-							<button class="fav btn btn-dark bi bi-heart-fill"></button>
-						<a routerLink="/productdetails">
-						<img class="card-img-top img-fluid" src="../../../assets/images/products/products-1.jpg" alt="Card image cap">
-						</a>
-				</div>
-				<div class="card-body">
-					<p  style="font-size:small;">Lamborghini</p>
-
-					<h4 class="card-title"><a routerLink="/productdetails">{{"carType" | translate}} </a></h4>
-					<div class="row mt-3  "> 
-						<p class=" ">{{"model" | translate}}: 2015</p>
-						<p class=" "> {{"Mileage" | translate}} :42,717 كم</p>
-					</div>		 
-				</div>
-			</div>
-		</div>
-				</div>
-
-
-
-					<!-- try -->
-
-			<div class="col-lg-4 col-md-6  ">
-						<!-- product card -->
-					<div class="product-item bg-light">
-							<div class="card">
-								<div class="thumb-content">
-						<div class="price">SR679,999</div>
-							<button class="fav btn btn-dark bi bi-heart-fill"></button>
-						<a routerLink="/productdetails">
-						<img class="card-img-top img-fluid" src="../../../assets/images/products/products-1.jpg" alt="Card image cap">
-						</a>
-				</div>
-				<div class="card-body">
-					<p  style="font-size:small;">Lamborghini</p>
-
-					<h4 class="card-title"><a routerLink="/productdetails">{{"carType" | translate}} </a></h4>
-					<div class="row mt-3  "> 
-						<p class=" ">{{"model" | translate}}: 2015</p>
-						<p class=" "> {{"Mileage" | translate}} :42,717 كم</p>
-					</div>		 
-				</div>
-			</div>
-		</div>
-				</div>
-
-
-
-					<!-- try -->
-
-			<div class="col-lg-4 col-md-6  ">
-						<!-- product card -->
-				<div class="product-item bg-light">
-					<div class="card">
-						<div class="thumb-content">
-							<div class="price">SR679,999</div>
-								<button class="fav btn btn-dark bi bi-heart-fill"></button>
-								<a routerLink="/productdetails">
-								<img class="card-img-top img-fluid" src="../../../assets/images/products/products-4.jpg" alt="Card image cap"></a>
-						</div>
-						<div class="card-body">
-							<p  style="font-size:small;">Lamborghini</p>
-							<h4 class="card-title"><a routerLink="/productdetails">{{"carType" | translate}} </a></h4>
-							<div class="row mt-3  "> 
-								<p class=" ">{{"model" | translate}}: 2015</p>
-								<p class=" "> {{"Mileage" | translate}} :42,717 كم</p>
-							</div>		 
-						</div>	
-					</div>
-				</div>
-			</div>
-
-									<!-- try -->
-
-			<div class="col-lg-4 col-md-6  ">
-						<!-- product card -->
-				<div class="product-item bg-light">
-					<div class="card">
-						<div class="thumb-content">
-							<div class="price">SR679,999</div>
-								<button class="fav btn btn-dark bi bi-heart-fill"></button>
-								<a routerLink="/productdetails">
-								<img class="card-img-top img-fluid" src="../../../assets/images/products/products-3.jpg" alt="Card image cap"></a>
-						</div>
-						<div class="card-body">
-							<p  style="font-size:small;">Lamborghini</p>
-							<h4 class="card-title"><a routerLink="/productdetails">{{"carType" | translate}} </a></h4>
-							<div class="row mt-3  "> 
-								<p class=" ">{{"model" | translate}}: 2015</p>
-								<p class=" "> {{"Mileage" | translate}} :42,717 كم</p>
-							</div>		 
-						</div>	
-					</div>
-				</div>
-			</div>
-
-
-
-									<!-- try -->
-
-			<div class="col-lg-4 col-md-6  ">
-						<!-- product card -->
-				<div class="product-item bg-light">
-					<div class="card">
-						<div class="thumb-content">
-							<div class="price">SR679,999</div>
-								<button class="fav btn btn-dark bi bi-heart-fill"></button>
-								<a routerLink="/productdetails">
-								<img class="card-img-top img-fluid" src="../../../assets/images/products/products-4.jpg" alt="Card image cap"></a>
-						</div>
-						<div class="card-body">
-							<p  style="font-size:small;">Lamborghini</p>
-							<h4 class="card-title"><a routerLink="/productdetails">{{"carType" | translate}} </a></h4>
-							<div class="row mt-3  "> 
-								<p class=" ">{{"model" | translate}}: 2015</p>
-								<p class=" "> {{"Mileage" | translate}} :42,717 كم</p>
-							</div>		 
-						</div>	
-					</div>
-				</div>
-			</div>
-
-									<!-- try -->
-
-			<div class="col-lg-4 col-md-6  ">
-						<!-- product card -->
-				<div class="product-item bg-light">
-					<div class="card">
-						<div class="thumb-content">
-							<div class="price">SR679,999</div>
-								<button class="fav btn btn-dark bi bi-heart-fill"></button>
-								<a routerLink="/productdetails">
-								<img class="card-img-top img-fluid" src="../../../assets/images/products/products-2.jpg" alt="Card image cap"></a>
-						</div>
-						<div class="card-body">
-							<p  style="font-size:small;">Lamborghini</p>
-							<h4 class="card-title"><a routerLink="/productdetails">{{"carType" | translate}} </a></h4>
-							<div class="row mt-3  "> 
-								<p class=" ">{{"model" | translate}}: 2015</p>
-								<p class=" "> {{"Mileage" | translate}} :42,717 كم</p>
-							</div>		 
-						</div>	
-					</div>
-				</div>
-			</div>
-
-									<!-- try -->
-
-			<div class="col-lg-4 col-md-6  ">
-						<!-- product card -->
-					<div class="product-item bg-light">
-							<div class="card">
-								<div class="thumb-content">
-						<div class="price">SR679,999</div>
-							<button class="fav btn btn-dark bi bi-heart-fill"></button>
-						<a routerLink="/productdetails">
-						<img class="card-img-top img-fluid" src="../../../assets/images/products/products-1.jpg" alt="Card image cap">
-						</a>
-				</div>
-				<div class="card-body">
-					<p  style="font-size:small;">Lamborghini</p>
-
-					<h4 class="card-title"><a routerLink="/productdetails">{{"carType" | translate}} </a></h4>
-					<div class="row mt-3  "> 
-						<p class=" ">{{"model" | translate}}: 2015</p>
-						<p class=" "> {{"Mileage" | translate}} :42,717 كم</p>
-					</div>		 
-				</div>
-			</div>
-		</div>
-				</div>
-
-									<!-- try -->
-
-			<div class="col-lg-4 col-md-6  ">
-						<!-- product card -->
-				<div class="product-item bg-light">
-					<div class="card">
-						<div class="thumb-content">
-							<div class="price">SR679,999</div>
-								<button class="fav btn btn-dark bi bi-heart-fill"></button>
-								<a routerLink="/productdetails">
-								<img class="card-img-top img-fluid" src="../../../assets/images/products/products-4.jpg" alt="Card image cap"></a>
-						</div>
-						<div class="card-body">
-							<p  style="font-size:small;">Lamborghini</p>
-							<h4 class="card-title"><a routerLink="/productdetails">{{"carType" | translate}} </a></h4>
-							<div class="row mt-3  "> 
-								<p class=" ">{{"model" | translate}}: 2015</p>
-								<p class=" "> {{"Mileage" | translate}} :42,717 كم</p>
-							</div>		 
-						</div>	
-					</div>
-				</div>
-			</div>
-
-									<!-- try -->
-
-			<div class="col-lg-4 col-md-6  ">
-						<!-- product card -->
-				<div class="product-item bg-light">
-					<div class="card">
-						<div class="thumb-content">
-							<div class="price">SR679,999</div>
-								<button class="fav btn btn-dark bi bi-heart-fill"></button>
-								<a routerLink="/productdetails">
-								<img class="card-img-top img-fluid" src="../../../assets/images/products/products-3.jpg" alt="Card image cap"></a>
-						</div>
-						<div class="card-body">
-							<p  style="font-size:small;">Lamborghini</p>
-							<h4 class="card-title"><a routerLink="/productdetails">{{"carType" | translate}} </a></h4>
-							<div class="row mt-3  "> 
-								<p class=" ">{{"model" | translate}}: 2015</p>
-								<p class=" "> {{"Mileage" | translate}} :42,717 كم</p>
-							</div>		 
-						</div>	
-					</div>
-				</div>
-			</div>
-
-
-									<!-- try -->
-
-			<div class="col-lg-4 col-md-6  ">
-						<!-- product card -->
-				<div class="product-item bg-light">
-					<div class="card">
-						<div class="thumb-content">
-							<div class="price">SR679,999</div>
-								<button class="fav btn btn-dark bi bi-heart-fill"></button>
-								<a routerLink="/productdetails">
-								<img class="card-img-top img-fluid" src="../../../assets/images/products/products-2.jpg" alt="Card image cap"></a>
-						</div>
-						<div class="card-body">
-							<p  style="font-size:small;">Lamborghini</p>
-							<h4 class="card-title"><a routerLink="/productdetails">{{"carType" | translate}} </a></h4>
-							<div class="row mt-3  "> 
-								<p class=" ">{{"model" | translate}}: 2015</p>
-								<p class=" "> {{"Mileage" | translate}} :42,717 كم</p>
-							</div>		 
-						</div>	
-					</div>
-				</div>
-			</div>
-
-
-			
-						
-				
-				
-						
 					</div>
 				</div>
 				<div class="pagination justify-content-center mb-2">
@@ -567,3 +134,17 @@
 		</div>
 	</div>
 </section>
+
+
+
+
+
+
+	<!-- <option #all value="" (click)="selectbrand(all.value)">الكل</option>
+                                <option #Benz value=" Mercedes-Benz"    (click)="selectbrand(Benz.value)" > Mercedes-Benz</option>
+                                <option #Lamborghini value=" Lamborghini"    (click)="selectbrand(Lamborghini.value)" > Lamborghini</option>
+                                <option #Bentley value="Bentley"  (click)="selectbrand(Bentley.value)" >Bentley</option>
+                                <option #Porsche  value="Porsche "  (click)="selectbrand(Porsche .value)" >Porsche </option>
+                                <option #bmw value="bmw"  (click)="selectbrand(bmw.value)" >bmw</option>
+                                <option #dodg value="dodg"  (click)="selectbrand(dodg.value)" >dodg</option>
+                                <option #Rolls value="Rolls"  (click)="selectbrand(Rolls.value)" >Rolls Royce</option> -->

@@ -1294,8 +1294,7 @@ ul.pagination .active a {
 
 .product-item {
   box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.1);
-  margin-bottom: 30px;
-  
+  margin-bottom: 30px;  
 }
 .offer{
   border: 5px solid #f49719;
@@ -1303,6 +1302,7 @@ ul.pagination .active a {
 }
 .product-item .card {
   border: none;
+  
 }
 .product-item .card .card-body p{
 font-size: medium;
@@ -1321,6 +1321,7 @@ font-size: medium;
 }
 .product-item .thumb-content {
   position: relative;
+  
  
 }
 .product-item .thumb-content .fav {
@@ -2319,3 +2320,5 @@ form textarea {
 
 .my-footer{
 }
+
+  

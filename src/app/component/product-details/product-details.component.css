@@ -231,8 +231,6 @@ button:hover {
    }
     .comment_list_wrapper .comment_wrapper .reply_form_wrapper textarea {
     width:100%;
-    resize:none;
-    height: fit-content;
    }
     .comment_list_wrapper .comment_wrapper .reply_form_wrapper button {
     margin-top:10px;
