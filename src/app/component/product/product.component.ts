@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-product',
@@ -8,8 +8,11 @@ import { Component, OnInit } from '@angular/core';
 export class ProductComponent implements OnInit {
 
   constructor() { }
-
   ngOnInit(): void {
+    this.showup()
+    
   }
-
+showup(){
+  window.scrollTo(0, 0);
+}
 }

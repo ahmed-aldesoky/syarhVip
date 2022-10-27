@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ɵNG_ELEMENT_ID } from '@angular/core';
 
 @Component({
   selector: 'app-main',
@@ -12,4 +12,8 @@ export class MainComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  showup(){
+    document.body.scrollTo(0, 0);
+
+  }
 }

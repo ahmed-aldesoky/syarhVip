@@ -2172,6 +2172,7 @@ form textarea {
 }
 .footer .block.about img {
   margin-bottom: 25px;
+ 
 }
 .footer .block.about p {
   line-height: 26px;
@@ -2181,7 +2182,7 @@ form textarea {
 }
 .footer .block ul li a {
   display: block;
-  font-size: 14px;
+  font-size: 18px;
   color: #797979;
 }
 .footer .block ul li a:hover {
@@ -2291,6 +2292,13 @@ form textarea {
     height: 35px;
     line-height: 35px;
   }
+  .none > p {
+    display: none;
+  }
+  .none > div{
+
+
+  }
 }
 /*# sourceMappingURL=style.css.map */
 
@@ -2309,3 +2317,5 @@ form textarea {
   color: #f49719;
 }
 
+.my-footer{
+}

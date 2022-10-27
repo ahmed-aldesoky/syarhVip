@@ -52,3 +52,10 @@
    .brand-logos .imgasicon:hover img {
     filter:grayscale(0) opacity(1)
    }
+
+   .media{
+    font-size:xx-large;
+   }
+   .media span{
+    margin: 0 3px;
+   }
