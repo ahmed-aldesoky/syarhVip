@@ -65,10 +65,7 @@ export class ProductDetailsComponent implements OnInit {
 
     this.authStatus = this.auth.loggedInStatus$.subscribe(status => {
       this.isLoggedIn = status;
-        if (status) {
-          this.avatarInitial = this.username[0] || 'Q';
-          this.userId = this.auth.getPersistedUser().id;        
-        }
+       
     });
 
 // get cars details-------------------**********

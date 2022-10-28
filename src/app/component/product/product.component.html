@@ -8,14 +8,20 @@
 					
 					
 					<div class="form-group  btn-group    col-7 col-sm-4  ms-5  ">
-						<button class="btn bg-dark text-warning dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
-							{{"sort" | translate}}
-						</button>
-						<ul class="dropdown-menu ">
-							<li><a class="dropdown-item bg-dark text-warning"value="1">{{"TopRated" | translate}}</a></li>
-							<li><a class="dropdown-item bg-dark text-warning" value="2">{{"lowestPrice" | translate}}</a></li>
-							<li><a class="dropdown-item bg-dark text-warning"value="3">{{"heightPrice" | translate}}</a></li>
-						</ul>
+
+						<select class="form-select  bg-dark text-warning " aria-label="Default select example"  >
+							<option  class="text-warning">{{"sort" | translate}}</option>
+							<option  value="" (click)="sortAtoZ()" >الكل</option>
+							<option  value="" (click)="sortZtoA()" >{{"heightPrice" | translate}}</option>
+							
+						</select>
+						
+						<!-- <select class="form-select  bg-dark text-warning ">
+							<option class="btn bg-dark text-warning dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">{{"sort" | translate}}</option>
+							<option><a class="dropdown-item bg-dark text-warning"value="1" (click)="sortAtoZ()">{{"TopRated" | translate}}</a></option>
+							<option><a class="dropdown-item bg-dark text-warning" value="2" (click)="sortZtoA()">{{"lowestPrice" | translate}}</a></option>
+							<option><a class="dropdown-item bg-dark text-warning"value="3">{{"heightPrice" | translate}}</a></option>
+						</select> -->
 					</div>
 					<div class="col-md-12 col-xl-4 social-media-icons text-left text-lg-left media row me-5 ">
 						<a class="col-2 " href=""><img   class="" src="../../../assets/images/logo/103-1037817_13-twitter-icon-vector-logo-images-twitter-logo.png"   height="50" ></a>
@@ -43,12 +49,7 @@
 							<select class="form-select  bg-dark text-warning"  aria-label="Default select example" required>
                                 <option selected class="text-warning">{{'selectBrand' | translate}}</option>
 								<option #all value="{{m}}" *ngFor="let m of makers"  (click)="selectbrand(all.value)"  (click)="do()">{{m}}</option>
-
-							
-
-
-
-                            </select>
+							</select>
                         </div>
 						<div class="form-group  btn-group w-100 my-2">
 							<select class="form-select  bg-dark text-warning " aria-label="Default select example" required >
@@ -89,7 +90,7 @@
 							<!-- try -->
 
 							<!-- change here the number of cards in row -->
-						<div class="col-lg-6 col-md-6 "   *ngFor="let car of cars">
+						<div class="col-lg-6 col-md-6 "   *ngFor="let car of cars | sort:'asc':'name'">
 							<!-- product card -->
 							<div class="product-item bg-light ">
 								<div class="card">

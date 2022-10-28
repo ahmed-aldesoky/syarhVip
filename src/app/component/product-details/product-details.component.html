@@ -191,11 +191,7 @@
 				</div>
 			</div>
 			</div>
-
-
-
-
-			<form class="add_comment_wrapper" commentForm="ngForm" ngNativeValidate (ngSubmit)="onsubmit()">
+			<form class="add_comment_wrapper" commentForm="ngForm" ngNativeValidate (ngSubmit)="onsubmit()" *ngIf="isLoggedIn">
 				<textarea name="comment" required #text="ngModel" [(ngModel)]="newComment.data.content" placeholder="أكتب سؤالك للمعلن هنا"></textarea>
 				<div class="btn_msg_wrapper">
 					<button class="btn my-btn mt-2" type="submit" [disabled]="!text.valid">

@@ -3,6 +3,8 @@ import { Car, CarResponse } from 'src/app/data/models/cars';
 import { SearchValue, SearchValueResponse } from 'src/app/data/models/search';
 import { ActivatedRoute, ParamMap, Route, Router } from '@angular/router';
 import { CarService } from 'src/app/data/service/cars.service';
+import { SortPipe } from "../../shared/pipes/sort.pipe";
+
 import {cloneDeep} from 'lodash';
 import { filter } from 'rxjs/operators'
 import { fromEvent } from 'rxjs';
@@ -51,7 +53,10 @@ export class ProductComponent implements OnInit {
     {name:"Jeep",path:"../../../assets/images/logo/Jeep_logo.svg.png"},
     ]
 
-  constructor(private activatedRouter:ActivatedRoute, private carService:CarService,private router:Router) { }
+  constructor(private activatedRouter:ActivatedRoute,
+     private carService:CarService,
+     private router:Router,
+     private sortPipe: SortPipe) { }
   ngOnInit(): void {
     
     
@@ -193,6 +198,14 @@ filterProjectByLogo(filterTerm: string ){
     submitData(){
       console.log(this.searchValue);
       
+    }
+    sortAtoZ(){
+      this.cars= this.sortPipe.transform( this.cars, "asc", "name");
+
+    }
+    sortZtoA(){
+      this.cars= this.sortPipe.transform( this.cars, "desc", "name");
+
     }
 
 }

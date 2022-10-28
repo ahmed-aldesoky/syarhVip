@@ -6,6 +6,7 @@ import { RatingComponent } from '../shared/rating/rating.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from '../app-routing.module';
 import {TranslationModule} from '../translation.module';
+import { SortPipe } from './pipes/sort.pipe';
 
 
 
@@ -13,7 +14,8 @@ import {TranslationModule} from '../translation.module';
 @NgModule({
   declarations: [
     RatingComponent,
-    SearchComponent
+    SearchComponent,
+    SortPipe
 
 
   ],
@@ -27,8 +29,9 @@ import {TranslationModule} from '../translation.module';
   exports: [
     CommonModule,
     RatingComponent,
-    SearchComponent
-
-  ]
+    SearchComponent,
+    SortPipe
+  ],
+  providers:    [ SortPipe ],
 })
 export class SharedModule { }
