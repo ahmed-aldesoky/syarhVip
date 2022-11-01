@@ -176,7 +176,7 @@ filterCars(){
     return this.cars.filter((product) => 
     { 
       return(
-        product.maker.toLowerCase().indexOf( this.searchValue.maker?.toLowerCase())!==-1 ||
+        product.maker.toLowerCase().indexOf( this.searchValue.maker?.toLowerCase())!==-1 &&
         product.model.toLowerCase().indexOf( this.searchValue.model?.toLowerCase())!==-1 &&
         product.location.toLowerCase().indexOf( this.searchValue.location?.toLowerCase())!==-1 &&
         product.year.toString().indexOf( this.searchValue.year?.toLowerCase())!==-1 
